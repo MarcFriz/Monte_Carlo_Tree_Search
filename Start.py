@@ -12,18 +12,18 @@ def play(board):
             print("You Win!")
             return
 
-        # KI turn
-        best = MCTS.choose_best_move(board, 1000)
-        print(best)
-        board.make_move(best)
-        print(board)
-
-        if board.three_in_a_row() == 1:
-            print("KI Win!")
-            return
-        elif board.three_in_a_row() == 2:
-            print("You Win!")
-            return
+        # # KI turn
+        # best = MCTS.choose_best_move(board, 1000)
+        # print(best)
+        # board.make_move(best)
+        # print(board)
+        #
+        # if board.three_in_a_row() == 1:
+        #     print("X Win!")
+        #     return
+        # elif board.three_in_a_row() == 2:
+        #     print("O Win!")
+        #     return
 
         # Player turn
         x = int(input("Ihr Zug: "))
@@ -31,10 +31,23 @@ def play(board):
         print(board)
 
         if board.three_in_a_row() == 1:
-            print("KI Win!")
+            print("X Win!")
             return
         elif board.three_in_a_row() == 2:
-            print("You Win!")
+            print("O Win!")
+            return
+
+        # KI turn
+        best = MCTS.choose_best_move(board, 1500)
+        print(best)
+        board.make_move(best)
+        print(board)
+
+        if board.three_in_a_row() == 1:
+            print("X Win!")
+            return
+        elif board.three_in_a_row() == 2:
+            print("O Win!")
             return
 
 

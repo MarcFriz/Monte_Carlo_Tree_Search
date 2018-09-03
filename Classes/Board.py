@@ -2,7 +2,7 @@ class Board(object):
 
     def __init__(self):
         self.board = [".", ".", ".", ".", ".", ".", ".", ".", "."]
-        self.player = "X"
+        self.player = "O"
 
     def __str__(self):
         output = str(self.board[0]) + "  " + str(self.board[1]) + "  " + str(self.board[2]) + "\n"

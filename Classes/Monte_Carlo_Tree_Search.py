@@ -4,6 +4,7 @@ import copy
 
 def play_randomly(board):
     value = board.three_in_a_row()
+    counter = 0
     while value == 0:
         moves = board.list_moves()
         # print("moves = ", moves)
@@ -14,6 +15,7 @@ def play_randomly(board):
         board.make_move(random_move)
         # print(board)
         value = board.three_in_a_row()
+        counter += 1
     return value
 
 
@@ -39,6 +41,12 @@ def evaluate_moves(board, number=100):
     return values
 
 
+def evaluate_loss(board, move):
+    b = copy.deepcopy(board)
+    b.make_move(move)
+
+
+
 def choose_best_move(board, number=100):
     assert number >= 1 and board.list_moves() != []
     moves = board.list_moves()
@@ -55,9 +63,12 @@ def choose_best_move(board, number=100):
     #max_valO = max(valuesO)
     #max_idxO = valuesO.index(max_valO)
 
+
+
+
     if board.player == "X":
         return moves[max_idx]
-    #if board.player == "O":
+    # if board.player == "O":
     #    return moves[max_idxO]
 
     return moves[max_idx]
